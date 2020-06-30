@@ -53,7 +53,7 @@ struct PartialSheet: ViewModifier {
     
     /// The height of the handler bar section
     private var handlerSectionHeight: CGFloat {
-        return 30
+        return 0
     }
     
     /// The Gesture State for the drag gesture
@@ -175,14 +175,14 @@ extension PartialSheet {
             Group {
                 VStack(spacing: 0) {
                     // This is the little rounded bar (HANDLER) on top of the sheet
-                    VStack {
-                        Spacer()
-                        RoundedRectangle(cornerRadius: CGFloat(5.0) / 2.0)
-                            .frame(width: 40, height: 5)
-                            .foregroundColor(self.style.handlerBarColor)
-                        Spacer()
-                    }
-                    .frame(height: handlerSectionHeight)
+//                    VStack {
+//                        Spacer()
+//                        RoundedRectangle(cornerRadius: CGFloat(5.0) / 2.0)
+//                            .frame(width: 40, height: 5)
+//                            .foregroundColor(self.style.handlerBarColor)
+//                        Spacer()
+//                    }
+//                    .frame(height: handlerSectionHeight)
                     VStack {
                         // Attach the SHEET CONTENT
                         self.manager.content
@@ -200,7 +200,7 @@ extension PartialSheet {
                 })
                     .frame(width: UIScreen.main.bounds.width)
                     .background(style.backgroundColor)
-                    .cornerRadius(10.0)
+//                    .cornerRadius(10.0)
                     .shadow(color: Color(.sRGBLinear, white: 0, opacity: 0.13), radius: 10.0)
                     .offset(y: self.manager.isPresented ?
                         self.topAnchor + self.dragState.translation.height - self.offset : self.bottomAnchor - self.dragState.translation.height
