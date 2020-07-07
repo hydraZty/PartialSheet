@@ -205,8 +205,7 @@ extension PartialSheet {
                     .offset(y: self.manager.isPresented ?
                         self.topAnchor + self.dragState.translation.height - self.offset : self.bottomAnchor - self.dragState.translation.height
                 )
-//                    .animation(self.dragState.isDragging ?
-//                        nil : .interpolatingSpring(stiffness: 300.0, damping: 30.0, initialVelocity: 10.0))
+                    .animation(.interpolatingSpring(stiffness: 300.0, damping: 30.0, initialVelocity: 10.0))
                     .gesture(drag)
             }
         }
