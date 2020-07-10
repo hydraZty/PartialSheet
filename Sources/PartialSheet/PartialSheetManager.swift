@@ -27,7 +27,7 @@ public class PartialSheetManager: ObservableObject {
     @Published var isPresented: Bool = false {
         didSet {
             if !isPresented {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) { [weak self] in
+                DispatchQueue.main.async { [weak self] in
                     self?.content = AnyView(EmptyView())
                     self?.onDismiss = nil
                 }
