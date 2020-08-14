@@ -33,8 +33,7 @@ struct PartialSheet: ViewModifier {
     
     /// The point for the top anchor
     private var topAnchor: CGFloat {
-        return max(presenterContentRect.height +
-            (UIApplication.shared.windows.first?.safeAreaInsets.bottom ?? 0) -
+        return max(presenterContentRect.origin.y + presenterContentRect.height -
             sheetContentRect.height - handlerSectionHeight,
                    110)
     }
